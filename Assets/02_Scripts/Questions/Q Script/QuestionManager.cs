@@ -38,6 +38,7 @@ public class QuestionManager : MonoBehaviour
         switch (questions[questionid].id) 
         {
             case 0:
+                Head.SetActive(true);
                 break;
             case 1:
                 break;
