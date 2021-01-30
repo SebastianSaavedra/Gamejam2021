@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 154774157}
   - component: {fileID: 154774156}
   - component: {fileID: 154774158}
+  - component: {fileID: 154774159}
   m_Layer: 0
   m_Name: Agua
   m_TagString: Untagged
@@ -221,8 +222,8 @@ MonoBehaviour:
   _initShader: {fileID: 4800000, guid: b33355df34f2b2b43a368cb90a6a664b, type: 3}
   _resolution: {x: 512, y: 512}
   _dampening: 0.99
-  _updateMode: 1
-  _iterationsPerUpdate: 2
+  _updateMode: 0
+  _iterationsPerUpdate: 1
 --- !u!114 &154774157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ MonoBehaviour:
   _useFixedUpdate: 0
   _inputSize: 5
   _minInputSize: 1
-  _inputPush: 0
+  _inputPush: 1
   _shallowWater: {fileID: 154774156}
 --- !u!64 &154774158
 MeshCollider:
@@ -254,6 +255,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &154774159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154774152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8706a3c07f3464c8ce581a9f560fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallOff: -1
+  water: {fileID: 2100000, guid: 13da1095c5942124e91e39599fea3a77, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +304,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -339,13 +354,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.6830127, y: -0.18301266, z: 0.18301266, w: 0.6830127}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,9 +412,9 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 50
-  field of view: 60
-  orthographic: 1
+  far clip plane: 5000
+  field of view: 26.991467
+  orthographic: 0
   orthographic size: 1.92
   m_Depth: -1
   m_CullingMask:
@@ -516,13 +531,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974483223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.26}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2073133661
 GameObject:
   m_ObjectHideFlags: 0

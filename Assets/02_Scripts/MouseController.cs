@@ -8,7 +8,7 @@ using UnityEngine;
 
         protected override void DoUpdate()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
