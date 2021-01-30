@@ -6,6 +6,7 @@ public class WaterEvents : MonoBehaviour
 {
     [SerializeField] LayerMask layer;
     [SerializeField] List<GameObject> objetos = new List<GameObject>();
+    [SerializeField] GameObject panel;
 
     int clicks;
     bool puedeDarClick = true;
@@ -19,23 +20,23 @@ public class WaterEvents : MonoBehaviour
     {
         if (puedeDarClick && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse is pressed down " + puedeDarClick);
+            //Debug.Log("Mouse is pressed down " + puedeDarClick);
 
             RaycastHit hitInfo = new RaycastHit();
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo,Mathf.Infinity,layer))
             {
                 Debug.Log("Object Hit is " + hitInfo.collider.gameObject.name);
 
-                if (!primerEvento && hitInfo.collider.gameObject.name == "Agua")
+                if (!primerEvento)
                 {
-                    if (clicks != 5)
+                    if (clicks != objetos.Count - 1)
                     {
                         clicks++;
                         objetos[clicks].SetActive(true);
                     }
                     else
                     {
-                        Debug.Log("Clicks = 5");
+                        Debug.Log("Clicks = " + objetos.Count);
                         clicks = 0;
                         StartCoroutine(Espera());
                     }
@@ -49,6 +50,8 @@ public class WaterEvents : MonoBehaviour
         puedeDarClick = false;
         primerEvento = true;
         yield return new WaitForSeconds(3.5f);
+        panel.SetActive(true);
+        yield return new WaitForSeconds(.1f);
         Destroy(this);
         //puedeDarClick = true;
         yield break;

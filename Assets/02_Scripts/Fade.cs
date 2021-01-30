@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class Fade : MonoBehaviour
 {
+    [SerializeField] GameObject parent;
     void Start()
     {
         Image imgFade = GetComponent<Image>();
         imgFade.DOFade(0,5f);
-        Destroy(gameObject,5.1f);
+        Destroy(parent,5.1f);
     }
 }
