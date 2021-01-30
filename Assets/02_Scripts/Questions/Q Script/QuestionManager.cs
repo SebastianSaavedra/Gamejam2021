@@ -6,12 +6,18 @@ using TMPro;
 using DG.Tweening;
 public class QuestionManager : MonoBehaviour
 {
-    [Header("BodyParts")]
+    [Header("BodyParts3D")]
+    [SerializeField] GameObject head;
+    [SerializeField] GameObject body;
+    [SerializeField] GameObject legs;
+    [Header("BodyParts2D")]
     [SerializeField] SpriteRenderer sprite;
     [Header("Values")]
     [SerializeField] float fadeTime;
     [SerializeField] int questionid;
     [SerializeField] string currentBodyPart;
+    [SerializeField] string sentBodyPart;
+    [SerializeField] GameObject sentObj;
     [Header("Question")]
     [SerializeField] TextMeshProUGUI pregunta;
     [SerializeField] TextMeshProUGUI respuestaA;
@@ -24,6 +30,7 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] List<QuestionData> hands_Data;
     [SerializeField] List<QuestionData> feet_Data;
     [SerializeField] List<QuestionData> arms_Data;
+    [SerializeField] DitheringCullOff fadeAnim;
     void Start()
     {    
         questions.Add(head_Data[Random.Range(0,head_Data.Count)]);
@@ -33,6 +40,7 @@ public class QuestionManager : MonoBehaviour
         questions.Add(feet_Data[Random.Range(0,feet_Data.Count)]);
         questions.Add(arms_Data[Random.Range(0,arms_Data.Count)]);
         StartCoroutine(ShowText());
+       
     }
    public void SelectQuestion() 
     {
@@ -43,22 +51,32 @@ public class QuestionManager : MonoBehaviour
         respuestaA.text = questions[questionid].RespuestaA;
         respuestaB.text = questions[questionid].RespuestaB;
     }
-    public void AnswerA() 
+    public void AnswerA(string sentBodyPart, GameObject from) 
     {
-        if (questions[questionid].a) 
+        sentObj = from;
+        if (currentBodyPart == sentBodyPart) //prev questions[questionid].a
         {
         switch (questions[questionid].parts.bodyParts) 
         {
             case QuestionData.Parts.BodyParts.head:
-               
+                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                 break;
             case QuestionData.Parts.BodyParts.body:
-                
+                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();                
                 break;
             case QuestionData.Parts.BodyParts.legs:
-                
+                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();               
                 break;
-        }
+                case QuestionData.Parts.BodyParts.arms:
+                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();
+                    break;
+                case QuestionData.Parts.BodyParts.hands:
+                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();
+                    break;
+                case QuestionData.Parts.BodyParts.feet:
+                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();
+                    break;
+            }
         }
         StartCoroutine(HideText());
     }
@@ -69,7 +87,6 @@ public class QuestionManager : MonoBehaviour
             switch (questions[questionid].parts.bodyParts)
             {
                 case QuestionData.Parts.BodyParts.head:
-                
                     break;
                 case QuestionData.Parts.BodyParts.body:
                   

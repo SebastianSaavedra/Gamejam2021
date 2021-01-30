@@ -14,13 +14,13 @@ public class DitheringCullOff : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Desintegracion();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Desintegracion();
+        //}
     }
 
-    void Desintegracion()
+   public void Desintegracion()
     {
         ditheringObj.DOFloat(5f, "_Cutoff", 3.5f);
     }
