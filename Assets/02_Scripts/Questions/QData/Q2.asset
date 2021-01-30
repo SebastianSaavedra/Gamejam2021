@@ -15,4 +15,7 @@ MonoBehaviour:
   Pregunta: Cuerpo
   RespuestaA: Bueno
   RespuestaB: Malo
-  id: 1
+  a: 1
+  b: 0
+  parts:
+    bodyParts: 1

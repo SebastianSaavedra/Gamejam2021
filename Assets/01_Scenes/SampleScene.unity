@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8706a3c07f3464c8ce581a9f560fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallOff: -1
+  fallOff: -1.47
   water: {fileID: 2100000, guid: 13da1095c5942124e91e39599fea3a77, type: 2}
 --- !u!1 &467720024
 GameObject:
@@ -422,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &467720025
 Transform:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &666071491
 Transform:
   m_ObjectHideFlags: 0
@@ -1040,12 +1040,14 @@ MonoBehaviour:
   body: {fileID: 2073133661}
   legs: {fileID: 467720024}
   fadeTime: 3
+  questionid: 0
   pregunta: {fileID: 1811214073}
   respuestaA: {fileID: 1952917537}
   respuestaB: {fileID: 23338993}
   questions:
   - {fileID: 11400000, guid: e046ace2fc0971c42945ecf67a49aa69, type: 2}
   - {fileID: 11400000, guid: 8d6ed867e9522dc4e984bc25ed47ab1a, type: 2}
+  - {fileID: 11400000, guid: ceb3a46cd953e5e4fa6409c0a1604646, type: 2}
 --- !u!4 &1406683694
 Transform:
   m_ObjectHideFlags: 0
@@ -1789,7 +1791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &2073133662
 BoxCollider:
   m_ObjectHideFlags: 0

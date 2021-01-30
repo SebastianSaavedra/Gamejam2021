@@ -8,5 +8,14 @@ public class QuestionData : ScriptableObject
     public string Pregunta;
     public string RespuestaA;
     public string RespuestaB;
-    public int id;
+    [Header("Respuesta Correcta")]
+    public bool a;
+    public bool b;
+    public Parts parts;
+    [System.Serializable]
+    public class Parts 
+    {
+    public enum BodyParts {head,body,legs};
+    public  BodyParts bodyParts;
+    }
 }

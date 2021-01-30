@@ -15,4 +15,7 @@ MonoBehaviour:
   Pregunta: Piernas
   RespuestaA: Malo
   RespuestaB: Bueno
-  id: 3
+  a: 0
+  b: 1
+  parts:
+    bodyParts: 2

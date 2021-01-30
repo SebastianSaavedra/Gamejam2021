@@ -15,4 +15,7 @@ MonoBehaviour:
   Pregunta: Cabeza
   RespuestaA: Bueno
   RespuestaB: Malo
-  id: 0
+  a: 1
+  b: 0
+  parts:
+    bodyParts: 0

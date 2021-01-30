@@ -13,6 +13,7 @@ public class QuestionManager : MonoBehaviour
     [Header("Values")]
     [SerializeField] float fadeTime;
     [SerializeField] int questionid;
+    [SerializeField] string currentBodyPart;
     [Header("Question")]
     [SerializeField] TextMeshProUGUI pregunta;
     [SerializeField] TextMeshProUGUI respuestaA;
@@ -25,39 +26,50 @@ public class QuestionManager : MonoBehaviour
 
    public void SelectQuestion() 
     {
-        questionid = Random.Range(0,questions.Count);      
+        questionid = Random.Range(0, questions.Count);
+        currentBodyPart = questions[questionid].parts.bodyParts.ToString();
         pregunta.text = questions[questionid].Pregunta;
         respuestaA.text = questions[questionid].RespuestaA;
         respuestaB.text = questions[questionid].RespuestaB;
-        questions.RemoveAt(questionid);
     }
 
     public void AnswerA() 
     {
-        StartCoroutine(HideText());
-        switch (questions[questionid].id) 
+        if (questions[questionid].a) 
         {
-            case 0:
+        switch (questions[questionid].parts.bodyParts) 
+        {
+            case QuestionData.Parts.BodyParts.head:
                 Head.SetActive(true);
                 break;
-            case 1:
+            case QuestionData.Parts.BodyParts.body:
+                body.SetActive(true);
                 break;
-            case 2:
+            case QuestionData.Parts.BodyParts.legs:
+                legs.SetActive(true);
                 break;
         }
+        }
+        StartCoroutine(HideText());
     }
     public void AnswerB() 
     {
-        StartCoroutine(HideText());
-        switch (questions[questionid].id)
+        if (questions[questionid].b)
         {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
+            switch (questions[questionid].parts.bodyParts)
+            {
+                case QuestionData.Parts.BodyParts.head:
+                    Head.SetActive(true);
+                    break;
+                case QuestionData.Parts.BodyParts.body:
+                    body.SetActive(true);
+                    break;
+                case QuestionData.Parts.BodyParts.legs:
+                    legs.SetActive(true);
+                    break;
+            }
         }
+            StartCoroutine(HideText());
     }
     
     IEnumerator ShowText() 
@@ -74,6 +86,8 @@ public class QuestionManager : MonoBehaviour
         respuestaA.DOFade(0, fadeTime);
         respuestaB.DOFade(0, fadeTime);
         yield return new WaitForSeconds(fadeTime);
+        questions.RemoveAt(questionid);
+        yield return new WaitForSeconds(0.2f);
         StartCoroutine(ShowText());
         yield break;
     }

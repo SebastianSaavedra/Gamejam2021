@@ -46,7 +46,7 @@ Material:
     - _ShallowWaveNormalStrength: 25
     - _ShallowWaveVertHeight: 0.5
     - _WaterDepth: 0.96
-    - _WaterFalloff: -1
+    - _WaterFalloff: -1.47
     - _WaterSmoothness: 0.79
     - _WaterSpecular: 0.01
     - __dirty: 0
