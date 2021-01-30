@@ -17,5 +17,6 @@ MonoBehaviour:
   RespuestaB: Malo
   a: 1
   b: 0
+  bodyPartSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   parts:
     bodyParts: 1

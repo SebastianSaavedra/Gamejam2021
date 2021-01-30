@@ -7,9 +7,7 @@ using DG.Tweening;
 public class QuestionManager : MonoBehaviour
 {
     [Header("BodyParts")]
-    [SerializeField] GameObject Head;
-    [SerializeField] GameObject body;
-    [SerializeField] GameObject legs;
+    [SerializeField] SpriteRenderer sprite;
     [Header("Values")]
     [SerializeField] float fadeTime;
     [SerializeField] int questionid;
@@ -19,20 +17,32 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI respuestaA;
     [SerializeField] TextMeshProUGUI respuestaB;
     [SerializeField] List<QuestionData> questions;
+    [Header("Question Feed")]
+    [SerializeField] List<QuestionData> head_Data;
+    [SerializeField] List<QuestionData> body_Data;
+    [SerializeField] List<QuestionData> legs_Data;
+    [SerializeField] List<QuestionData> hands_Data;
+    [SerializeField] List<QuestionData> feet_Data;
+    [SerializeField] List<QuestionData> arms_Data;
     void Start()
-    {
+    {    
+        questions.Add(head_Data[Random.Range(0,head_Data.Count)]);
+        questions.Add(body_Data[Random.Range(0,body_Data.Count)]);
+        questions.Add(legs_Data[Random.Range(0,legs_Data.Count)]);
+        questions.Add(hands_Data[Random.Range(0,hands_Data.Count)]);
+        questions.Add(feet_Data[Random.Range(0,feet_Data.Count)]);
+        questions.Add(arms_Data[Random.Range(0,arms_Data.Count)]);
         StartCoroutine(ShowText());
     }
-
    public void SelectQuestion() 
     {
         questionid = Random.Range(0, questions.Count);
+        sprite.sprite = questions[questionid].bodyPartSprite;
         currentBodyPart = questions[questionid].parts.bodyParts.ToString();
         pregunta.text = questions[questionid].Pregunta;
         respuestaA.text = questions[questionid].RespuestaA;
         respuestaB.text = questions[questionid].RespuestaB;
     }
-
     public void AnswerA() 
     {
         if (questions[questionid].a) 
@@ -40,13 +50,13 @@ public class QuestionManager : MonoBehaviour
         switch (questions[questionid].parts.bodyParts) 
         {
             case QuestionData.Parts.BodyParts.head:
-                Head.SetActive(true);
+               
                 break;
             case QuestionData.Parts.BodyParts.body:
-                body.SetActive(true);
+                
                 break;
             case QuestionData.Parts.BodyParts.legs:
-                legs.SetActive(true);
+                
                 break;
         }
         }
@@ -59,13 +69,13 @@ public class QuestionManager : MonoBehaviour
             switch (questions[questionid].parts.bodyParts)
             {
                 case QuestionData.Parts.BodyParts.head:
-                    Head.SetActive(true);
+                
                     break;
                 case QuestionData.Parts.BodyParts.body:
-                    body.SetActive(true);
+                  
                     break;
                 case QuestionData.Parts.BodyParts.legs:
-                    legs.SetActive(true);
+                 
                     break;
             }
         }
@@ -78,6 +88,7 @@ public class QuestionManager : MonoBehaviour
         pregunta.DOFade(1,fadeTime);
         respuestaA.DOFade(1,fadeTime);
         respuestaB.DOFade(1,fadeTime);
+        sprite.DOFade(1, fadeTime);
         yield break;
     }
     IEnumerator HideText()
@@ -85,13 +96,13 @@ public class QuestionManager : MonoBehaviour
         pregunta.DOFade(0, fadeTime);
         respuestaA.DOFade(0, fadeTime);
         respuestaB.DOFade(0, fadeTime);
+        sprite.DOFade(0, fadeTime);
         yield return new WaitForSeconds(fadeTime);
         questions.RemoveAt(questionid);
         yield return new WaitForSeconds(0.2f);
         StartCoroutine(ShowText());
         yield break;
     }
-
 
 
 }

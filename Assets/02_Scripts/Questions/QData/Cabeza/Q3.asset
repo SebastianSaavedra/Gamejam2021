@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb83242ef65a074796f1d1c71c382f7, type: 3}
   m_Name: Q3
   m_EditorClassIdentifier: 
-  Pregunta: Piernas
-  RespuestaA: Malo
-  RespuestaB: Bueno
-  a: 0
-  b: 1
+  Pregunta: Cabeza
+  RespuestaA: Bueno
+  RespuestaB: Malo
+  a: 1
+  b: 0
+  bodyPartSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   parts:
-    bodyParts: 2
+    bodyParts: 0

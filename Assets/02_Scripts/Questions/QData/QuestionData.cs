@@ -11,11 +11,12 @@ public class QuestionData : ScriptableObject
     [Header("Respuesta Correcta")]
     public bool a;
     public bool b;
+    public Sprite bodyPartSprite;
     public Parts parts;
     [System.Serializable]
     public class Parts 
     {
-    public enum BodyParts {head,body,legs};
+    public enum BodyParts {head,body,legs,hands,feet,arms};
     public  BodyParts bodyParts;
     }
 }
