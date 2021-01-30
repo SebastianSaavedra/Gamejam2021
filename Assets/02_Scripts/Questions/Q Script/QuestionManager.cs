@@ -31,8 +31,10 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] List<QuestionData> feet_Data;
     [SerializeField] List<QuestionData> arms_Data;
     [SerializeField] DitheringCullOff fadeAnim;
+    [Header("CanClick")]
+    public static bool canClick;
     void Start()
-    {    
+    {
         questions.Add(head_Data[Random.Range(0,head_Data.Count)]);
         questions.Add(body_Data[Random.Range(0,body_Data.Count)]);
         questions.Add(legs_Data[Random.Range(0,legs_Data.Count)]);
@@ -54,8 +56,6 @@ public class QuestionManager : MonoBehaviour
     public void AnswerA(string sentBodyPart, GameObject from) 
     {
         sentObj = from;
-        if (currentBodyPart == sentBodyPart) //prev questions[questionid].a
-        {
         switch (questions[questionid].parts.bodyParts) 
         {
             case QuestionData.Parts.BodyParts.head:
@@ -75,8 +75,7 @@ public class QuestionManager : MonoBehaviour
                     break;
                 case QuestionData.Parts.BodyParts.feet:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
-                    break;
-            }
+                    break;           
         }
         StartCoroutine(HideText());
     }
@@ -106,10 +105,13 @@ public class QuestionManager : MonoBehaviour
         respuestaA.DOFade(1,fadeTime);
         respuestaB.DOFade(1,fadeTime);
         sprite.DOFade(1, fadeTime);
+        yield return new WaitForSeconds(fadeTime);
+        canClick = true;
         yield break;
     }
     IEnumerator HideText()
     {
+        canClick = false;
         pregunta.DOFade(0, fadeTime);
         respuestaA.DOFade(0, fadeTime);
         respuestaB.DOFade(0, fadeTime);

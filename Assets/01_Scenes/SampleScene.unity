@@ -609,6 +609,8 @@ MonoBehaviour:
   bodypart: 4
   qm: {fileID: 1406683693}
   referenceObj: {fileID: 2113079388}
+  col:
+  - {fileID: 572750104}
 --- !u!114 &572750106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,6 +1127,8 @@ MonoBehaviour:
   bodypart: 0
   qm: {fileID: 1406683693}
   referenceObj: {fileID: 769275332}
+  col:
+  - {fileID: 713618850}
 --- !u!114 &713618852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,6 +2125,15 @@ MonoBehaviour:
   bodypart: 5
   qm: {fileID: 1406683693}
   referenceObj: {fileID: 1346420249}
+  col:
+  - {fileID: 1742480639}
+  - {fileID: 1742480638}
+  - {fileID: 1742480637}
+  - {fileID: 1742480632}
+  - {fileID: 1742480643}
+  - {fileID: 1742480642}
+  - {fileID: 1742480641}
+  - {fileID: 1742480640}
 --- !u!114 &1742480634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2693,6 +2706,9 @@ MonoBehaviour:
   bodypart: 3
   qm: {fileID: 1406683693}
   referenceObj: {fileID: 626994236}
+  col:
+  - {fileID: 1934965538}
+  - {fileID: 1934965537}
 --- !u!114 &1934965540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2919,6 +2935,8 @@ MonoBehaviour:
   bodypart: 2
   qm: {fileID: 1406683693}
   referenceObj: {fileID: 1071953107}
+  col:
+  - {fileID: 2024972021}
 --- !u!114 &2024972023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3157,6 +3175,8 @@ MonoBehaviour:
   bodypart: 1
   qm: {fileID: 1406683693}
   referenceObj: {fileID: 2073133661}
+  col:
+  - {fileID: 2037135037}
 --- !u!114 &2037135034
 MonoBehaviour:
   m_ObjectHideFlags: 0

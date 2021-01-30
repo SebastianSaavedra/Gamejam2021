@@ -8,11 +8,22 @@ public class OnMouseDownSendSignal : MonoBehaviour
     public BodyPart bodypart;
     [SerializeField] QuestionManager qm;
     [SerializeField] GameObject referenceObj;
+    public List<Collider> col;
 
-
+    private void Start()
+    {
+     
+    }
     private void OnMouseDown()
     {
-        Debug.Log("T");
+        if(QuestionManager.canClick)
+        {
+        Debug.Log(transform.name);
+        foreach(Collider cols in col) 
+        {
+            cols.enabled = false;
+        }
         qm.AnswerA(bodypart.ToString(),referenceObj);
+        }
     }
 }
