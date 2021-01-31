@@ -39,7 +39,7 @@ public class WaterEvents : MonoBehaviour
             //Debug.Log("Mouse is pressed down " + puedeDarClick);
 
             RaycastHit hitInfo = new RaycastHit();
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo,Mathf.Infinity,layer))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity, layer))
             {
                 Debug.Log("Object Hit is " + hitInfo.collider.gameObject.name);
 
@@ -47,10 +47,10 @@ public class WaterEvents : MonoBehaviour
                 {
                     if (clicks != objetos.Count)
                     {
-                        audio.clip = clips[clicks+1];
+                        audio.clip = clips[clicks + 1];
                         audio.volume = audio.volume + .1f;
                         audio.Play();
-                        objetos[clicks].GetComponent<Image>().DOFade(0f,3f);
+                        objetos[clicks].GetComponent<Image>().DOFade(0f, 3f);
                         clicks++;
                         //objetos[clicks - 1].SetActive(true);
                         Debug.Log("Clicks = " + clicks);
@@ -62,7 +62,15 @@ public class WaterEvents : MonoBehaviour
                     }
                 }
             }
+            StartCoroutine(timer());
         }
+    }
+    IEnumerator timer()
+    {
+        puedeDarClick = false;
+        yield return new WaitForSeconds(3f);
+        puedeDarClick = true;
+        yield break;
     }
 
     IEnumerator Espera()

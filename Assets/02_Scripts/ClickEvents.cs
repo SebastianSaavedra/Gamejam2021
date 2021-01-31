@@ -22,7 +22,7 @@ public class ClickEvents : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         audio.clip = clips[0];
-        audio.volume = 0.1f;
+        audio.volume = 0.5f;
         audio.Play();
     }
     void Update()

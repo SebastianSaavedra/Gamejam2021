@@ -32,6 +32,7 @@ public class OnMouseDownSendSignal : MonoBehaviour
     {
         if (qm.stage==11 && QuestionManager.canClick)
         {
+            audio.volume = 1;
             qm.CallStop();
             referenceObj.GetComponent<SpriteRenderer>().material = dit;
             referenceObj.GetComponent<DitheringCullOff>().Desintegracion();
