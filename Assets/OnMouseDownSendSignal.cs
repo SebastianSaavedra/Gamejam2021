@@ -7,12 +7,20 @@ public class OnMouseDownSendSignal : MonoBehaviour
     public enum Tematicas { nombre, figure, color, felicidad, odio, sabiduria, moral };
     public Tematicas tematica;
     [SerializeField] QuestionManager qm;
-    [SerializeField] GameObject referenceObj;
+    public GameObject referenceObj;
     public List<Collider> col;
+    [SerializeField] Material dit;
 
     private void Start()
     {
      
+    }
+    private void OnEnable()
+    {
+        foreach (Collider cols in col)
+        {
+            cols.enabled = true;
+        }
     }
     private void OnMouseDown()
     {
@@ -23,6 +31,7 @@ public class OnMouseDownSendSignal : MonoBehaviour
         {
             cols.enabled = false;
         }
+        referenceObj.GetComponent<SpriteRenderer>().material = dit;
         qm.AnswerA(tematica.ToString(),referenceObj);
         }
     }

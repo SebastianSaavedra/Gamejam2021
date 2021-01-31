@@ -10,6 +10,7 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] GameObject head;
     [SerializeField] GameObject body;
     [SerializeField] GameObject legs;
+    [SerializeField] GameObject hands;
     [Header("BodyParts2D")]
     [SerializeField] SpriteRenderer sprite;
     [Header("Values")]
@@ -20,14 +21,18 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] int stage;
     [SerializeField] List<GameObject> answers;
     [SerializeField] List<GameObject> answersInGame;
+    [SerializeField] List<GameObject> savedAnswers;
+    [SerializeField] List<GameObject> ActivePanels;
     [SerializeField] List<Transform> origin;
     [SerializeField] List<Transform> savedorigin;
+    [SerializeField] Transform savedAorigin;
     [SerializeField] GameObject sentObj;
     [Header("Question")]
     [SerializeField] TextMeshProUGUI pregunta;
     [SerializeField] TextMeshProUGUI respuestaA;
     [SerializeField] TextMeshProUGUI respuestaB;
     [SerializeField] List<QuestionData> questions;
+    [SerializeField] GameObject objectToWaitFor;
     [Header("Question Feed")]
     [SerializeField] List<QuestionData> nombre_Data;
     [SerializeField] List<QuestionData> figura_Data;
@@ -56,7 +61,7 @@ public class QuestionManager : MonoBehaviour
         questions.Add(odio_Data[Random.Range(0,odio_Data.Count)]);
         questions.Add(sabiduria_Data[Random.Range(0,sabiduria_Data.Count)]);
         questions.Add(moral_Data[Random.Range(0,moral_Data.Count)]);
-        StartCoroutine(ShowText());
+        StartCoroutine(OnStartUp());
         StartCoroutine(waitforFirstInput());
        
     }
@@ -69,6 +74,7 @@ public class QuestionManager : MonoBehaviour
         }
         //sprite.sprite = questions[questionid].tematicatSprite;
         currentBodyPart = questions[questionid].parts.tematica.ToString();
+        Debug.Log(questionid);
         pregunta.text = questions[questionid].Pregunta;
         //respuestaA.text = questions[questionid].RespuestaA;
         //respuestaB.text = questions[questionid].RespuestaB;
@@ -79,18 +85,26 @@ public class QuestionManager : MonoBehaviour
       for(int x = 0; x < answers.Count; x++) 
         {
             int y = Random.Range(0, origin.Count);
-            Instantiate(answers[x], origin[y].position, origin[y].rotation);
-            Debug.Log("Removed " + answers[x].name);
-            answersInGame.Add(answers[x]);
+           GameObject obj= Instantiate(answers[x], origin[y].position, origin[y].rotation);
+            Debug.Log("Removed " +obj.name);
+            obj.transform.parent = hands.transform;
+            origin[y].GetComponent<IntermediateScript>().panelReference.gameObject.SetActive(true);
+            origin[y].GetComponent<IntermediateScript>().panelReference.referenceObj = obj;
+            ActivePanels.Add(origin[y].GetComponent<IntermediateScript>().panelReference.gameObject);
+            answersInGame.Add(obj);
             answers.RemoveAt(x);
             origin.RemoveAt(y);
         }
         if (answers.Count == 1) 
         {
             int y = Random.Range(0, origin.Count);
-            Instantiate(answers[0], origin[y].position, origin[y].rotation);
+            GameObject obj= Instantiate(answers[0], origin[y].position, origin[y].rotation);
             Debug.Log("Removed " + answers[0].name);
-            answersInGame.Add(answers[0]);
+            obj.transform.parent = hands.transform;
+            origin[y].GetComponent<IntermediateScript>().panelReference.gameObject.SetActive(true);
+            origin[y].GetComponent<IntermediateScript>().panelReference.referenceObj = obj;
+            ActivePanels.Add(origin[y].GetComponent<IntermediateScript>().panelReference.gameObject);
+            answersInGame.Add(obj);
             answers.RemoveAt(0);
             origin.RemoveAt(y);
         }
@@ -98,6 +112,7 @@ public class QuestionManager : MonoBehaviour
     public void AnswerA(string sentBodyPart, GameObject from) 
     {
         sentObj = from;
+        savedAnswers.Add(sentObj);
         switch (questions[questionid].parts.tematica) 
         {
             case QuestionData.Parts.Tematicas.nombre:
@@ -121,6 +136,10 @@ public class QuestionManager : MonoBehaviour
             case QuestionData.Parts.Tematicas.moral:
                 sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                 break;
+        }
+        foreach (GameObject answer in answersInGame)
+        {
+            answer.GetComponent<SpriteRenderer>().DOFade(1, fadeTime);
         }
         switch (stage) 
         {
@@ -160,6 +179,13 @@ public class QuestionManager : MonoBehaviour
     //    }
     //        StartCoroutine(HideText());
     //}
+
+    IEnumerator OnStartUp() 
+    {
+        yield return new WaitUntil(()=> objectToWaitFor.activeInHierarchy==true);
+        StartCoroutine(ShowText());
+        yield break;
+    }
     
     IEnumerator ShowText() 
     {
@@ -169,6 +195,10 @@ public class QuestionManager : MonoBehaviour
         //respuestaA.DOFade(1,fadeTime);
         //respuestaB.DOFade(1,fadeTime);
         sprite.DOFade(1, fadeTime);
+        foreach(GameObject answer in answersInGame) 
+        {
+            answer.GetComponent<SpriteRenderer>().DOFade(1, fadeTime);
+        }
         yield return new WaitForSeconds(fadeTime);
         canClick = true;
         yield break;
@@ -180,11 +210,28 @@ public class QuestionManager : MonoBehaviour
         respuestaA.DOFade(0, fadeTime);
         respuestaB.DOFade(0, fadeTime);
         sprite.DOFade(0, fadeTime);
+        foreach (GameObject answer in answersInGame)
+        {
+            answer.GetComponent<SpriteRenderer>().DOFade(0,fadeTime);
+        }
         yield return new WaitForSeconds(fadeTime);
+        foreach (GameObject answer in answersInGame) 
+        {
+            if (sentObj != answer) 
+            {
+            Destroy(answer);
+            }
+        }
+        sentObj.transform.position = savedAorigin.position;
+        answersInGame.Clear();
+        foreach(GameObject panel in ActivePanels) 
+        {
+            panel.SetActive(false);
+        }
+        ActivePanels.Clear();
         stage = stage + 1;
         questions.RemoveAt(questionid);
         yield return new WaitForSeconds(0.2f);
-        questionid = questionid + 1;
         StartCoroutine(ShowText());
         yield break;
     }
