@@ -10,10 +10,11 @@ public class OnMouseDownSendSignal : MonoBehaviour
     public GameObject referenceObj;
     public List<Collider> col;
     [SerializeField] Material dit;
+    AudioSource audio;
 
     private void Start()
     {
-     
+        audio = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
@@ -31,6 +32,7 @@ public class OnMouseDownSendSignal : MonoBehaviour
         {
             cols.enabled = false;
         }
+        audio.Play();
         referenceObj.GetComponent<SpriteRenderer>().material = dit;
         qm.AnswerA(tematica.ToString(),referenceObj);
         }

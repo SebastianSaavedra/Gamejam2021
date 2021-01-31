@@ -90,6 +90,7 @@ public class QuestionManager : MonoBehaviour
             obj.transform.parent = hands.transform;
             origin[y].GetComponent<IntermediateScript>().panelReference.gameObject.SetActive(true);
             origin[y].GetComponent<IntermediateScript>().panelReference.referenceObj = obj;
+            origin[y].GetComponent<IntermediateScript>().panelReference.GetComponent<AudioSource>().clip = questions[questionid].audio;
             ActivePanels.Add(origin[y].GetComponent<IntermediateScript>().panelReference.gameObject);
             answersInGame.Add(obj);
             answers.RemoveAt(x);
@@ -140,6 +141,14 @@ public class QuestionManager : MonoBehaviour
         foreach (GameObject answer in answersInGame)
         {
             answer.GetComponent<SpriteRenderer>().DOFade(1, fadeTime);
+        }
+        foreach(GameObject panel in ActivePanels) 
+        {
+            foreach(Collider col in panel.GetComponent<OnMouseDownSendSignal>().col) 
+            {
+                col.enabled = false;
+            }
+         
         }
         switch (stage) 
         {

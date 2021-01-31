@@ -14,6 +14,7 @@ public class QuestionData : ScriptableObject
     public Sprite tematicatSprite;
     public Parts parts;
     public List<GameObject> answers;
+    public AudioClip audio;
     [System.Serializable]
     public class Parts 
     {
