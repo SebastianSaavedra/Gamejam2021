@@ -79,7 +79,7 @@ public class QuestionManager : MonoBehaviour
         StartCoroutine(waitforFirstInput());
        
     }
-   public void SelectQuestion() 
+   IEnumerator SelectQuestion() 
     {
         origin.Clear();
         foreach (Transform origins in savedorigin)
@@ -98,6 +98,7 @@ public class QuestionManager : MonoBehaviour
         {
             answers.Add(answer);
         }
+        yield return new WaitForSeconds(1f);
       for(int x = 0; x < answers.Count; x++) 
         {
             int y = Random.Range(0, origin.Count);
@@ -124,6 +125,7 @@ public class QuestionManager : MonoBehaviour
             answers.RemoveAt(0);
             origin.RemoveAt(y);
         }
+        yield break;
     }
     public void AnswerA(string sentBodyPart, GameObject from) 
     {
@@ -237,7 +239,7 @@ public class QuestionManager : MonoBehaviour
     IEnumerator ShowText() 
     {
         yield return new WaitForSeconds(0.2f);
-        SelectQuestion();
+        StartCoroutine(SelectQuestion());
         pregunta.DOFade(1,fadeTime);
         //respuestaA.DOFade(1,fadeTime);
         //respuestaB.DOFade(1,fadeTime);

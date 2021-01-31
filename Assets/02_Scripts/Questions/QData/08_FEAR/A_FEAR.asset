@@ -19,9 +19,10 @@ MonoBehaviour:
   b: 0
   tematicatSprite: {fileID: 0}
   parts:
-    tematica: 0
+    tematica: 7
   answers:
   - {fileID: 8104009706164750250, guid: 6be9dcb59a1e7ba4e937b4943f30304b, type: 3}
   - {fileID: 6963971214520616772, guid: a7b68080a759ccf4a8eea8987e5916cd, type: 3}
   - {fileID: 3059352377515477600, guid: 02110eedb37d66d4c8f87d3d44af73ef, type: 3}
   audio: {fileID: 8300000, guid: 87bdc47e9556186439d70fe010cd7881, type: 3}
+  audioend: {fileID: 0}
