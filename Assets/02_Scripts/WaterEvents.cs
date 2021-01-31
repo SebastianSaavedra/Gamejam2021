@@ -9,8 +9,8 @@ public class WaterEvents : MonoBehaviour
     [SerializeField] List<GameObject> objetos = new List<GameObject>();
     [SerializeField] GameObject panel;
 
-    [Header("Material")]
-    [SerializeField] Material ditherMaterial;
+    //[Header("Material")]
+    //[SerializeField] Material ditherMaterial;
 
     int clicks;
     bool puedeDarClick = true;
@@ -54,10 +54,10 @@ public class WaterEvents : MonoBehaviour
         puedeDarClick = false;
         primerEvento = true;
         yield return new WaitForSeconds(3.5f);
-        foreach (GameObject item in objetos)
-        {
-            item.GetComponent<Renderer>().material = ditherMaterial;
-        }
+        //foreach (GameObject item in objetos)
+        //{
+        //    item.GetComponent<Renderer>().material = ditherMaterial;
+        //}
         panel.SetActive(true);
         yield return new WaitForSeconds(.1f);
         Destroy(this);
