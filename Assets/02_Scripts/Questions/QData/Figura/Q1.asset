@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb83242ef65a074796f1d1c71c382f7, type: 3}
   m_Name: Q1
   m_EditorClassIdentifier: 
-  Pregunta: What is love?
+  Pregunta: Figura
   RespuestaA: Bueno
   RespuestaB: Malo
   a: 1
   b: 0
-  bodyPartSprite: {fileID: 21300000, guid: d63afdca341e4bc4296713c88b39df1b, type: 3}
+  tematicatSprite: {fileID: 0}
   parts:
-    bodyParts: 0
+    tematica: 1
+  answers:
+  - {fileID: 4746376921979328340, guid: 46dad54e7d9271945a03d178750a162d, type: 3}
+  - {fileID: 2704784104483910692, guid: 242cb6d3d25b6c147b2097a905210ac2, type: 3}
+  - {fileID: 6667411848827384170, guid: 71ea8f6c8e34c264b9837690301d2cc1, type: 3}

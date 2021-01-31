@@ -18,6 +18,10 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] string currentBodyPart;
     [SerializeField] string sentBodyPart;
     [SerializeField] int stage;
+    [SerializeField] List<GameObject> answers;
+    [SerializeField] List<GameObject> answersInGame;
+    [SerializeField] List<Transform> origin;
+    [SerializeField] List<Transform> savedorigin;
     [SerializeField] GameObject sentObj;
     [Header("Question")]
     [SerializeField] TextMeshProUGUI pregunta;
@@ -32,9 +36,8 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] List<QuestionData> odio_Data;
     [SerializeField] List<QuestionData> sabiduria_Data;
     [SerializeField] List<QuestionData> moral_Data;
-    [SerializeField] DitheringCullOff fadeAnim;
     [Header("Saved Sprites")]
-
+    List<GameObject> preguntasRespondidas;
     [Header("MusicStages")]
     [SerializeField] List<AudioSource> stage1;
     [SerializeField] List<AudioSource> stage2;
@@ -59,12 +62,38 @@ public class QuestionManager : MonoBehaviour
     }
    public void SelectQuestion() 
     {
-        sprite.sprite = questions[questionid].tematicatSprite;
+        origin.Clear();
+        foreach (Transform origins in savedorigin)
+        {
+           origin.Add(origins);
+        }
+        //sprite.sprite = questions[questionid].tematicatSprite;
         currentBodyPart = questions[questionid].parts.tematica.ToString();
         pregunta.text = questions[questionid].Pregunta;
-        respuestaA.text = questions[questionid].RespuestaA;
-        respuestaB.text = questions[questionid].RespuestaB;
-        questionid =  questionid + 1;
+        //respuestaA.text = questions[questionid].RespuestaA;
+        //respuestaB.text = questions[questionid].RespuestaB;
+      foreach(GameObject answer in questions[questionid].answers) 
+        {
+            answers.Add(answer);
+        }
+      for(int x = 0; x < answers.Count; x++) 
+        {
+            int y = Random.Range(0, origin.Count);
+            Instantiate(answers[x], origin[y].position, origin[y].rotation);
+            Debug.Log("Removed " + answers[x].name);
+            answersInGame.Add(answers[x]);
+            answers.RemoveAt(x);
+            origin.RemoveAt(y);
+        }
+        if (answers.Count == 1) 
+        {
+            int y = Random.Range(0, origin.Count);
+            Instantiate(answers[0], origin[y].position, origin[y].rotation);
+            Debug.Log("Removed " + answers[0].name);
+            answersInGame.Add(answers[0]);
+            answers.RemoveAt(0);
+            origin.RemoveAt(y);
+        }
     }
     public void AnswerA(string sentBodyPart, GameObject from) 
     {
@@ -134,10 +163,11 @@ public class QuestionManager : MonoBehaviour
     
     IEnumerator ShowText() 
     {
+        yield return new WaitForSeconds(0.2f);
         SelectQuestion();
         pregunta.DOFade(1,fadeTime);
-        respuestaA.DOFade(1,fadeTime);
-        respuestaB.DOFade(1,fadeTime);
+        //respuestaA.DOFade(1,fadeTime);
+        //respuestaB.DOFade(1,fadeTime);
         sprite.DOFade(1, fadeTime);
         yield return new WaitForSeconds(fadeTime);
         canClick = true;
@@ -154,6 +184,7 @@ public class QuestionManager : MonoBehaviour
         stage = stage + 1;
         questions.RemoveAt(questionid);
         yield return new WaitForSeconds(0.2f);
+        questionid = questionid + 1;
         StartCoroutine(ShowText());
         yield break;
     }

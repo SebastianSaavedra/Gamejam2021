@@ -13,10 +13,7 @@ public class QuestionData : ScriptableObject
     public bool b;
     public Sprite tematicatSprite;
     public Parts parts;
-    public Sprite option1;
-    public Sprite option2;
-    public Sprite option3;
-    public Sprite option4;
+    public List<GameObject> answers;
     [System.Serializable]
     public class Parts 
     {
