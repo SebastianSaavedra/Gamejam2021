@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class ClickEvents : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class ClickEvents : MonoBehaviour
     //[SerializeField] List<GameObject> objetos = new List<GameObject>();
     //[SerializeField] GameObject panel;
     [SerializeField] AudioClip[] clips;
+    [SerializeField] GameObject[] tm;
     AudioSource audio;
+    [SerializeField] GameObject you;
 
     int clicks;
     bool puedeDarClick = true;
@@ -29,7 +32,7 @@ public class ClickEvents : MonoBehaviour
 
     void IsClicked()
     {
-        if (/*puedeDarClick &&*/ Input.GetMouseButtonDown(0))
+        if (puedeDarClick && Input.GetMouseButtonDown(0))
         {
             //Debug.Log("Mouse is pressed down " + puedeDarClick);
 
@@ -43,14 +46,28 @@ public class ClickEvents : MonoBehaviour
                 //    if (clicks != objetos.Count)
                 //    {
 
-                audio.clip = clips[clicks + 1];
+                clicks++;
+                audio.clip = clips[clicks-1];
+                tm[clicks - 1].SetActive(true);
                 audio.volume = audio.volume + .1f;
                 audio.Play();
-                clicks++;
-
                 //objetos[clicks - 1].SetActive(true);
-
+                if (clicks == 5) 
+                {
+                    GetComponent<QuestionManager>().stage1.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage2.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage3.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage4.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage5.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage6.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage7.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage8.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage9.DOFade(0, 15);
+                    GetComponent<QuestionManager>().stage10.DOFade(0, 15);
+                    you.GetComponent<Ending>().Dissolve();
+                }
                 Debug.Log("Clicks = " + clicks);
+                StartCoroutine(timer());
 
                 //if (clicks == objetos.Count)
                 //{
@@ -61,6 +78,14 @@ public class ClickEvents : MonoBehaviour
                 //}
             }
         }
+    }
+
+    IEnumerator timer()
+    {
+        puedeDarClick = false;
+        yield return new WaitForSeconds(3f);
+        puedeDarClick = true;
+        yield break;
     }
 
     //IEnumerator Espera()

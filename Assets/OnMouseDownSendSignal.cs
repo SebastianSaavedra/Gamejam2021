@@ -11,9 +11,11 @@ public class OnMouseDownSendSignal : MonoBehaviour
     public List<Collider> col;
     [SerializeField] Material dit;
     [SerializeField] AudioClip[] clips;
+    [SerializeField] AudioClip[] clicks;
     AudioSource audio;
     [SerializeField] GameObject[] toChange;
     [SerializeField] GameObject currentActive;
+    [SerializeField] int fadeout;
 
     private void Start()
     {
@@ -38,31 +40,40 @@ public class OnMouseDownSendSignal : MonoBehaviour
                 //who, color, existencia, dream, heart, hope, mind, fear, moral, outer
                 case IconTheme.Tematicas.existencia:
                     audio.clip = clips[0];
+                    qm.KillSaved(2);
                     break;
                 case IconTheme.Tematicas.dream:
                     audio.clip = clips[1];
+                    qm.KillSaved(2);
                     break;
                 case IconTheme.Tematicas.heart:
                     audio.clip = clips[2];
+                    qm.KillSaved(2);
                     break;
 
                 case IconTheme.Tematicas.hope:
                     audio.clip = clips[3];
+                    qm.KillSaved(2);
                     break;
                 case IconTheme.Tematicas.mind:
                     audio.clip = clips[4];
+                    qm.KillSaved(2);
                     break;
                 case IconTheme.Tematicas.fear:
                     audio.clip = clips[5];
+                    qm.KillSaved(2);
                     break;
                 case IconTheme.Tematicas.moral:
                     audio.clip = clips[6];
+                    qm.KillSaved(2);
                     break;
                 case IconTheme.Tematicas.outer:
                     audio.clip = clips[7];
+                    qm.KillSaved(2);
                     break;
             }
             audio.Play();
+
             Destroy(referenceObj,3);
         }
         else 
@@ -74,7 +85,8 @@ public class OnMouseDownSendSignal : MonoBehaviour
         {
             cols.enabled = false;
         }
-       // audio.Play();
+        audio.clip = clicks[Random.Range(0, clicks.Length)];
+        audio.Play();
         referenceObj.GetComponent<SpriteRenderer>().material = dit;
                 qm.AnswerA(tematica.ToString(), referenceObj);
 

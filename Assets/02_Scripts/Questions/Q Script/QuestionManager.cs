@@ -7,6 +7,7 @@ using DG.Tweening;
 public class QuestionManager : MonoBehaviour
 {
     [Header("BodyParts3D")]
+    [SerializeField] int killmusic;
     [SerializeField] GameObject head;
     [SerializeField] GameObject body;
     [SerializeField] GameObject legs;
@@ -50,16 +51,17 @@ public class QuestionManager : MonoBehaviour
     List<GameObject> preguntasRespondidas;
     [Header("MusicStages")]
     #region music
-    [SerializeField] AudioSource stage1;
-    [SerializeField] AudioSource stage2;
-    [SerializeField] AudioSource stage3;
-    [SerializeField] AudioSource stage4;
-    [SerializeField] AudioSource stage5;
-    [SerializeField] AudioSource stage6;
-    [SerializeField] AudioSource stage7;
-    [SerializeField] AudioSource stage8;
-    [SerializeField] AudioSource stage9;
-    [SerializeField] AudioSource stage10;
+    public AudioSource stage1;
+    public AudioSource stage2;
+    public AudioSource stage3;
+    public AudioSource stage4;
+    public AudioSource stage5;
+    public AudioSource stage6;
+    public AudioSource stage7;
+    public AudioSource stage8;
+    public AudioSource stage9;
+    public AudioSource stage10;
+    public GameObject textos;
     #endregion
     [Header("CanClick")]
     public static bool canClick;
@@ -77,6 +79,7 @@ public class QuestionManager : MonoBehaviour
         questions.Add(outer_Data[Random.Range(0,outer_Data.Count)]);
         StartCoroutine(OnStartUp());
         StartCoroutine(waitforFirstInput());
+        StartCoroutine(waitForEndgame());
        
     }
    IEnumerator SelectQuestion() 
@@ -310,6 +313,7 @@ public class QuestionManager : MonoBehaviour
 
     IEnumerator ShowEndSprites() 
     {
+        textos.SetActive(true);
         origin.Clear();
         canClick = true;
         foreach (Transform origins in savedorigin)
@@ -332,6 +336,57 @@ public class QuestionManager : MonoBehaviour
             answer.GetComponent<SpriteRenderer>().DOFade(1, fadeTime);
         }
         yield break;
+    }
+
+    IEnumerator waitForEndgame() 
+    {
+        yield return new WaitUntil(()=> stage==11);
+        yield return new WaitUntil(()=> savedAnswers.Count==2);
+        yield return new WaitForSeconds(5f);
+        GetComponent<ClickEvents>().enabled = true;
+        yield break;
+    }
+
+    public void KillSaved(int obj) 
+    {
+        if (killmusic == 2)
+        {
+            stage2.DOFade(0, 15);
+        }
+        if (killmusic == 3)
+        {
+            stage3.DOFade(0, 15);
+        }
+        if (killmusic == 4)
+        {
+            stage4.DOFade(0, 15);
+        }
+        if (killmusic == 5)
+        {
+            stage5.DOFade(0, 15);
+        }
+        if (killmusic == 6)
+        {
+            stage6.DOFade(0, 15);
+        }
+        if (killmusic == 7)
+        {
+            stage7.DOFade(0, 15);
+        }
+        if (killmusic == 8)
+        {
+            stage8.DOFade(0, 15);
+        }
+        if (killmusic == 9)
+        {
+            stage9.DOFade(0, 15);
+        }
+        if (killmusic == 10)
+        {
+            stage10.DOFade(0, 15);
+        }
+        killmusic++;
+        savedAnswers.RemoveAt(obj);
     }
     public void CallStop() 
     {
