@@ -17,6 +17,7 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] int questionid;
     [SerializeField] string currentBodyPart;
     [SerializeField] string sentBodyPart;
+    [SerializeField] int stage;
     [SerializeField] GameObject sentObj;
     [Header("Question")]
     [SerializeField] TextMeshProUGUI pregunta;
@@ -31,6 +32,13 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] List<QuestionData> feet_Data;
     [SerializeField] List<QuestionData> arms_Data;
     [SerializeField] DitheringCullOff fadeAnim;
+    [Header("MusicStages")]
+    [SerializeField] List<AudioSource> stage1;
+    [SerializeField] List<AudioSource> stage2;
+    [SerializeField] List<AudioSource> stage3;
+    [SerializeField] List<AudioSource> stage4;
+    [SerializeField] List<AudioSource> stage5;
+    [SerializeField] List<AudioSource> stage6;
     [Header("CanClick")]
     public static bool canClick;
     void Start()
@@ -42,6 +50,7 @@ public class QuestionManager : MonoBehaviour
         questions.Add(feet_Data[Random.Range(0,feet_Data.Count)]);
         questions.Add(arms_Data[Random.Range(0,arms_Data.Count)]);
         StartCoroutine(ShowText());
+        StartCoroutine(waitforFirstInput());
        
     }
    public void SelectQuestion() 
@@ -76,6 +85,24 @@ public class QuestionManager : MonoBehaviour
                 case QuestionData.Parts.BodyParts.feet:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                     break;           
+        }
+        switch (stage) 
+        {
+            case 1:
+                AudioSourceQueue(stage2);
+                break;
+            case 2:
+                AudioSourceQueue(stage3);
+                break;
+            case 3:
+                AudioSourceQueue(stage4);
+                break;
+            case 4:
+                AudioSourceQueue(stage5);
+                break;
+            case 5:
+                AudioSourceQueue(stage6);
+                break;
         }
         StartCoroutine(HideText());
     }
@@ -117,11 +144,25 @@ public class QuestionManager : MonoBehaviour
         respuestaB.DOFade(0, fadeTime);
         sprite.DOFade(0, fadeTime);
         yield return new WaitForSeconds(fadeTime);
+        stage = stage + 1;
         questions.RemoveAt(questionid);
         yield return new WaitForSeconds(0.2f);
         StartCoroutine(ShowText());
         yield break;
     }
+    IEnumerator waitforFirstInput() 
+    {
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        stage = 1;
+        AudioSourceQueue(stage1);
+        yield break;
+    }
 
-
+    void AudioSourceQueue(List<AudioSource> list) 
+    {
+        foreach(AudioSource audio in list) 
+        {
+            audio.DOFade(1,10);
+        }
+    }
 }

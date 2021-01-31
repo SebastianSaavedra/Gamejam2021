@@ -13,6 +13,10 @@ public class QuestionData : ScriptableObject
     public bool b;
     public Sprite bodyPartSprite;
     public Parts parts;
+    public Sprite option1;
+    public Sprite option2;
+    public Sprite option3;
+    public Sprite option4;
     [System.Serializable]
     public class Parts 
     {

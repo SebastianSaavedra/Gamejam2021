@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8333656314023698062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8333656314023698060}
+  - component: {fileID: 8333656314023698063}
+  m_Layer: 0
+  m_Name: QuestionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8333656314023698060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333656314023698062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 717.7873, y: 925.8445, z: -97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8333656314023698063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333656314023698062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e928d67d6e334ba9c9bed679b10c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 0}
+  body: {fileID: 0}
+  legs: {fileID: 0}
+  sprite: {fileID: 0}
+  fadeTime: 3
+  questionid: 0
+  currentBodyPart: 
+  sentBodyPart: 
+  stage: 0
+  sentObj: {fileID: 0}
+  pregunta: {fileID: 0}
+  respuestaA: {fileID: 0}
+  respuestaB: {fileID: 0}
+  questions: []
+  head_Data:
+  - {fileID: 11400000, guid: e046ace2fc0971c42945ecf67a49aa69, type: 2}
+  body_Data:
+  - {fileID: 11400000, guid: 8d6ed867e9522dc4e984bc25ed47ab1a, type: 2}
+  legs_Data:
+  - {fileID: 11400000, guid: ceb3a46cd953e5e4fa6409c0a1604646, type: 2}
+  hands_Data:
+  - {fileID: 11400000, guid: 9f8ac5e5dd62b764da864fecd74d7b45, type: 2}
+  feet_Data:
+  - {fileID: 11400000, guid: 773f0ae0e8159e941b5f4186a109ca18, type: 2}
+  arms_Data:
+  - {fileID: 11400000, guid: 3c87c93043b4a3b46acd70211ef486f9, type: 2}
+  fadeAnim: {fileID: 0}
+  stage1:
+  - {fileID: 0}
+  stage2:
+  - {fileID: 0}
+  stage3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  stage4:
+  - {fileID: 0}
+  - {fileID: 0}
+  stage5:
+  - {fileID: 0}
+  - {fileID: 0}
+  stage6:
+  - {fileID: 0}

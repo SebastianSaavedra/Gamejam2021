@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb83242ef65a074796f1d1c71c382f7, type: 3}
   m_Name: Q1
   m_EditorClassIdentifier: 
-  Pregunta: Cabeza
+  Pregunta: What is love?
   RespuestaA: Bueno
   RespuestaB: Malo
   a: 1
