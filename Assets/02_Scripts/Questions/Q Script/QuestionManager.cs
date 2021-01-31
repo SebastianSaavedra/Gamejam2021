@@ -98,7 +98,6 @@ public class QuestionManager : MonoBehaviour
         {
             answers.Add(answer);
         }
-        yield return new WaitForSeconds(1f);
       for(int x = 0; x < answers.Count; x++) 
         {
             int y = Random.Range(0, origin.Count);

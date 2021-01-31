@@ -12,6 +12,8 @@ public class OnMouseDownSendSignal : MonoBehaviour
     [SerializeField] Material dit;
     [SerializeField] AudioClip[] clips;
     AudioSource audio;
+    [SerializeField] GameObject[] toChange;
+    [SerializeField] GameObject currentActive;
 
     private void Start()
     {
@@ -75,6 +77,55 @@ public class OnMouseDownSendSignal : MonoBehaviour
        // audio.Play();
         referenceObj.GetComponent<SpriteRenderer>().material = dit;
                 qm.AnswerA(tematica.ToString(), referenceObj);
+
+                if (referenceObj.GetComponent<FindIcon>()) 
+                {
+                    if (referenceObj.GetComponent<FindIcon>().iconToFind == "Espada")
+                    {
+                        toChange[0].SetActive(true);
+                    }
+                    if (referenceObj.GetComponent<FindIcon>().iconToFind == "Escudo")
+                    {
+                        toChange[1].SetActive(true);
+                    }
+                    if (referenceObj.GetComponent<FindIcon>().iconToFind == "Corazon")
+                    {
+                        toChange[2].SetActive(true);
+                    }
+                }
+                if (referenceObj.GetComponent<ChangeColor>()) 
+                {
+                    if (referenceObj.GetComponent<ChangeColor>().color == "red")
+                    {
+                        foreach (GameObject obj in toChange) 
+                        {
+                            if (obj != null) 
+                            {
+                        obj.GetComponent<SpriteRenderer>().color = referenceObj.GetComponent<ChangeColor>().color1;
+                            }
+                        }
+                    }
+                    if (referenceObj.GetComponent<ChangeColor>().color == "green")
+                    {
+                        foreach (GameObject obj in toChange)
+                        {
+                            if (obj != null)
+                            {
+                                obj.GetComponent<SpriteRenderer>().color = referenceObj.GetComponent<ChangeColor>().color2;
+                            }
+                        }
+                    }
+                    if (referenceObj.GetComponent<ChangeColor>().color == "blue")
+                    {
+                        foreach (GameObject obj in toChange)
+                        {
+                            if (obj != null)
+                            {
+                                obj.GetComponent<SpriteRenderer>().color = referenceObj.GetComponent<ChangeColor>().color3;
+                            }
+                        }
+                    }
+                }
         }
         }
     }

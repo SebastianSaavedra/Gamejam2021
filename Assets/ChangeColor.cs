@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer sprite;
+    public string color;
     public Color color1;
     public Color color2;
     public Color color3;

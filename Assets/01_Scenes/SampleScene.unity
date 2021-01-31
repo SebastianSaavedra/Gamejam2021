@@ -1324,7 +1324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &550150575
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1372,11 +1372,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 550150576}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &550150578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,7 +1543,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626994236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1627,7 +1632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &638676899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1675,11 +1680,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 638676900}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &638676902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,7 +2084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &713618849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2122,11 +2132,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 713618850}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &713618853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,7 +2231,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769275332}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2783,7 +2798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &936959150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2831,11 +2846,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 936959151}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &936959153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3194,7 +3214,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071953107}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3256,7 +3276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1093978892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3304,11 +3324,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 1093978893}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &1093978895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3562,7 +3587,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346420249}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3653,7 +3678,7 @@ MonoBehaviour:
   legs: {fileID: 1071953107}
   hands: {fileID: 1749653304}
   sprite: {fileID: 1974483224}
-  spriteMaterial: {fileID: 0}
+  spriteMaterial: {fileID: 2100000, guid: 7b36f37ee2b7a15439699d09e474dd47, type: 2}
   fadeTime: 3
   questionid: 0
   currentBodyPart: 
@@ -4521,7 +4546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1703644141
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4569,11 +4594,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 1703644142}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &1703644144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5105,7 +5135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1896885436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5153,11 +5183,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 1896885437}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &1896885439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5450,7 +5485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2035312187
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5498,11 +5533,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tematica: 0
   qm: {fileID: 1406683693}
-  referenceObj: {fileID: 769275332}
+  referenceObj: {fileID: 0}
   col:
   - {fileID: 2035312188}
   dit: {fileID: 2100000, guid: 7f50fd55a60e98a418bd0b51ad2b4d7c, type: 2}
   clips: []
+  toChange:
+  - {fileID: 7407903559776354939}
+  - {fileID: 6409725653829194533}
+  - {fileID: 4961516244730554362}
+  currentActive: {fileID: 0}
 --- !u!114 &2035312190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5578,7 +5618,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073133661}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -5851,7 +5891,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113079388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6252,30 +6292,13 @@ GameObject:
   - component: {fileID: 348033017592568747}
   - component: {fileID: 2893068284326439240}
   - component: {fileID: 2623020439259668370}
-  - component: {fileID: 4961516244730554363}
   m_Layer: 0
   m_Name: CorazonIcono_0
-  m_TagString: Untagged
+  m_TagString: Corazon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &4961516244730554363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4961516244730554362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874d40d6642770c45a3b3baf675b8d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  color1: {r: 1, g: 0, b: 0, a: 0}
-  color2: {r: 0.024959087, g: 1, b: 0, a: 0}
-  color3: {r: 0, g: 0.0323627, b: 1, a: 0}
+  m_IsActive: 0
 --- !u!212 &5370521897390514543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6338,30 +6361,13 @@ GameObject:
   - component: {fileID: 2440525245509643937}
   - component: {fileID: 3198084000556864461}
   - component: {fileID: 3825557486529054285}
-  - component: {fileID: 6409725653829194534}
   m_Layer: 0
   m_Name: EscudoIcono_0
-  m_TagString: Untagged
+  m_TagString: Escudo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &6409725653829194534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6409725653829194533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874d40d6642770c45a3b3baf675b8d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  color1: {r: 1, g: 0, b: 0, a: 0}
-  color2: {r: 0.024959087, g: 1, b: 0, a: 0}
-  color3: {r: 0, g: 0.0323627, b: 1, a: 0}
+  m_IsActive: 0
 --- !u!1 &7407903559776354939
 GameObject:
   m_ObjectHideFlags: 0
@@ -6373,27 +6379,10 @@ GameObject:
   - component: {fileID: 3214113276751320853}
   - component: {fileID: 5370521897390514543}
   - component: {fileID: 552570460675975007}
-  - component: {fileID: 7407903559776354940}
   m_Layer: 0
   m_Name: EspadaIcono_0
-  m_TagString: Untagged
+  m_TagString: Espada
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &7407903559776354940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7407903559776354939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874d40d6642770c45a3b3baf675b8d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  color1: {r: 1, g: 0, b: 0, a: 0}
-  color2: {r: 0.024959087, g: 1, b: 0, a: 0}
-  color3: {r: 0, g: 0.0323627, b: 1, a: 0}
+  m_IsActive: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2665430974572137532}
   - component: {fileID: 5169596238363734616}
   - component: {fileID: -811123724563356308}
+  - component: {fileID: 5373646091390190029}
   m_Layer: 0
   m_Name: EspadaIcono_0
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -7320457945015133402, guid: 206ed91a8081baf48b104c6109318335,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,3 +131,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tematica: 0
+--- !u!114 &5373646091390190029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014957989566048536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9291ea703a14e184b84f972506f4857c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconToFind: Espada
