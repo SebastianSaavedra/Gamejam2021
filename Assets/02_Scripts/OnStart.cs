@@ -10,6 +10,6 @@ public class OnStart : MonoBehaviour
     {
         Image imagen = GetComponent<Image>();
 
-        //imagen.DOFade(.4f,5f);
+        imagen.DOFade(.4f, 5f);
     }
 }

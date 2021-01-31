@@ -12,13 +12,13 @@ public class DitheringCullOff : MonoBehaviour
         ditheringObj = GetComponent<Renderer>().material;
     }
 
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Desintegracion();
-        //}
-    }
+    //private void Update()
+    //{
+    //    //if (Input.GetKeyDown(KeyCode.Space))
+    //    //{
+    //    //    Desintegracion();
+    //    //}
+    //}
 
    public void Desintegracion()
     {

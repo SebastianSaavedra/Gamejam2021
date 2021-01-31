@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 3
   m_Shader: {fileID: 4800000, guid: fb95ebfb6127b174c8a181a98e8241e6, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -51,5 +51,5 @@ Material:
     - _Cutoff: 0.74
     - _EndDitheringFade: 1
     - _StartDitheringFade: 0
-    - __dirty: 1
+    - __dirty: 0
     m_Colors: []

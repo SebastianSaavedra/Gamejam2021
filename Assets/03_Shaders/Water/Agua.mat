@@ -51,6 +51,6 @@ Material:
     - _WaterSpecular: 0.01
     - __dirty: 0
     m_Colors:
-    - _DeepColor: {r: 0, g: 0.043137256, b: 0.2509804, a: 0}
+    - _DeepColor: {r: 0, g: 0.04313726, b: 0.2509804, a: 0}
     - _ShallowWaveResolution: {r: 512, g: 512, b: 0, a: 0}
-    - _ShalowColor: {r: 0, g: 0.80784315, b: 0.80784315, a: 0}
+    - _ShalowColor: {r: 0, g: 0.8078431, b: 0.8078431, a: 0}
