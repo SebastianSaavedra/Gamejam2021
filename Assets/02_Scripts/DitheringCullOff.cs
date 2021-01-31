@@ -6,22 +6,11 @@ using DG.Tweening;
 public class DitheringCullOff : MonoBehaviour
 {
     Material ditheringObj;
+    [SerializeField] Material mat;
 
-    private void Start()
+    public void Desintegracion()
     {
         ditheringObj = GetComponent<Renderer>().material;
-    }
-
-    //private void Update()
-    //{
-    //    //if (Input.GetKeyDown(KeyCode.Space))
-    //    //{
-    //    //    Desintegracion();
-    //    //}
-    //}
-
-   public void Desintegracion()
-    {
         ditheringObj.DOFloat(5f, "_Cutoff", 3.5f);
     }
 }

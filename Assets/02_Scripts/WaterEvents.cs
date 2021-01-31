@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class WaterEvents : MonoBehaviour
 {
@@ -53,10 +54,10 @@ public class WaterEvents : MonoBehaviour
         puedeDarClick = false;
         primerEvento = true;
         yield return new WaitForSeconds(3.5f);
-        //foreach (GameObject item in objetos)
-        //{
-        //    item.GetComponent<Renderer>().material = ditherMaterial;
-        //}
+        foreach (GameObject item in objetos)
+        {
+            item.GetComponent<Renderer>().material = ditherMaterial;
+        }
         panel.SetActive(true);
         yield return new WaitForSeconds(.1f);
         Destroy(this);
