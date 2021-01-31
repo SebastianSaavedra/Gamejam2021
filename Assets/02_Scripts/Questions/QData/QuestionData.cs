@@ -15,6 +15,7 @@ public class QuestionData : ScriptableObject
     public Parts parts;
     public List<GameObject> answers;
     public AudioClip audio;
+    public AudioClip audioend;
     [System.Serializable]
     public class Parts 
     {

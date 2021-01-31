@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8041400847414844454}
   - component: {fileID: 8569847891328502182}
   - component: {fileID: 7249887302741473019}
+  - component: {fileID: -70576009004416579}
   m_Layer: 0
   m_Name: EscudoIcono_0
   m_TagString: Untagged
@@ -116,3 +117,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
+--- !u!114 &-70576009004416579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948581473796758734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ce914864affde46b825b977ba4f3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tematica: 4

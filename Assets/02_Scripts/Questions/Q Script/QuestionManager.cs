@@ -14,11 +14,12 @@ public class QuestionManager : MonoBehaviour
     [Header("BodyParts2D")]
     [SerializeField] SpriteRenderer sprite;
     [Header("Values")]
+    [SerializeField] Material spriteMaterial;
     [SerializeField] float fadeTime;
     [SerializeField] int questionid;
     [SerializeField] string currentBodyPart;
     [SerializeField] string sentBodyPart;
-    [SerializeField] int stage;
+    public int stage;
     [SerializeField] List<GameObject> answers;
     [SerializeField] List<GameObject> answersInGame;
     [SerializeField] List<GameObject> savedAnswers;
@@ -126,6 +127,7 @@ public class QuestionManager : MonoBehaviour
     }
     public void AnswerA(string sentBodyPart, GameObject from) 
     {
+        canClick = false;
         sentObj = from;
         savedAnswers.Add(sentObj);
         switch (questions[questionid].parts.tematica) 
@@ -277,7 +279,14 @@ public class QuestionManager : MonoBehaviour
         stage = stage + 1;
         questions.RemoveAt(questionid);
         yield return new WaitForSeconds(0.2f);
+        if (stage == 11) 
+        {
+            StartCoroutine(ShowEndSprites());
+        }
+        else 
+        {
         StartCoroutine(ShowText());
+        }
         yield break;
     }
     IEnumerator waitforFirstInput() 
@@ -298,6 +307,42 @@ public class QuestionManager : MonoBehaviour
         yield break;
     }
 
+    IEnumerator ShowEndSprites() 
+    {
+        origin.Clear();
+        canClick = true;
+        foreach (Transform origins in savedorigin)
+        {
+            origin.Add(origins);
+        }
+        for (int x = 2; x < savedAnswers.Count; x++)
+        {
+            int y = Random.Range(0, origin.Count);
+            savedAnswers[x].transform.position = origin[y].position;
+            savedAnswers[x].GetComponent<SpriteRenderer>().material = spriteMaterial;
+            origin[y].GetComponent<IntermediateScript>().panelReference.gameObject.SetActive(true);
+            origin[y].GetComponent<IntermediateScript>().panelReference.GetComponent<OnMouseDownSendSignal>().referenceObj = savedAnswers[x];
+            ActivePanels.Add(origin[y].GetComponent<IntermediateScript>().panelReference.gameObject);
+            origin.RemoveAt(y);
+        }
+        foreach (GameObject answer in savedAnswers)
+        {
+            answer.GetComponent<SpriteRenderer>().DOFade(0, 0);
+            answer.GetComponent<SpriteRenderer>().DOFade(1, fadeTime);
+        }
+        yield break;
+    }
+    public void CallStop() 
+    {
+        StartCoroutine(StopClicks());
+    }
+    IEnumerator StopClicks() 
+    {
+        canClick = false;
+        yield return new WaitForSeconds(3f);
+        canClick = true;
+        yield break;
+    }
     void AudioSourceQueue(AudioSource audio) 
     {
             audio.DOFade(.2f,15);
