@@ -21,7 +21,7 @@ MonoBehaviour:
   parts:
     tematica: 0
   answers:
-  - {fileID: 6923825921658001606, guid: 626d0409a7e864a489fb05013308c207, type: 3}
-  - {fileID: 1948581473796758734, guid: b15f3371fda2930468ff4b54d7d6fca4, type: 3}
-  - {fileID: 5014957989566048536, guid: 9d512f70e72c0b14d8a33483f613bbf3, type: 3}
+  - {fileID: 5157614442697777488, guid: 111036d55129fbe40a5cfd3f933e3780, type: 3}
+  - {fileID: 1168707230891450338, guid: 841c7c0973d78d246ac2f3027511105c, type: 3}
+  - {fileID: 349360407897378339, guid: 37f8451dece595d4793386cdec038f43, type: 3}
   audio: {fileID: 8300000, guid: c415f8e9177510540be72f6c9de8a266, type: 3}
