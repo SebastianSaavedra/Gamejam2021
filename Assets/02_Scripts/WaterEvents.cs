@@ -8,6 +8,8 @@ public class WaterEvents : MonoBehaviour
     [SerializeField] LayerMask layer;
     [SerializeField] List<GameObject> objetos = new List<GameObject>();
     [SerializeField] GameObject panel;
+    [SerializeField] AudioClip[] clips;
+     AudioSource audio;
 
     //[Header("Material")]
     //[SerializeField] Material ditherMaterial;
@@ -15,6 +17,14 @@ public class WaterEvents : MonoBehaviour
     int clicks;
     bool puedeDarClick = true;
     bool primerEvento = false;
+
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+        audio.clip = clips[0];
+        audio.volume = 0.1f;
+        audio.Play();
+    }
     void Update()
     {
         IsClicked();
@@ -35,6 +45,9 @@ public class WaterEvents : MonoBehaviour
                 {
                     if (clicks != objetos.Count)
                     {
+                        audio.clip = clips[clicks+1];
+                        audio.volume = audio.volume + .1f;
+                        audio.Play();
                         clicks++;
                         objetos[clicks - 1].SetActive(true);
                         Debug.Log("Clicks = " + clicks);

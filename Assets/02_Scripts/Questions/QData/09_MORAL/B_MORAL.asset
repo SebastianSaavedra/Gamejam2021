@@ -21,3 +21,4 @@ MonoBehaviour:
   parts:
     tematica: 0
   answers: []
+  audio: {fileID: 8300000, guid: a1af23f2d288dfe40a807a971ee44f6c, type: 3}

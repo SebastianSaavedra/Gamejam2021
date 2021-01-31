@@ -20,4 +20,8 @@ MonoBehaviour:
   tematicatSprite: {fileID: 0}
   parts:
     tematica: 0
-  answers: []
+  answers:
+  - {fileID: 4746376921979328340, guid: 46dad54e7d9271945a03d178750a162d, type: 3}
+  - {fileID: 2704784104483910692, guid: 242cb6d3d25b6c147b2097a905210ac2, type: 3}
+  - {fileID: 6667411848827384170, guid: 71ea8f6c8e34c264b9837690301d2cc1, type: 3}
+  audio: {fileID: 8300000, guid: 98042b85a7f46254f83df46604e9453f, type: 3}

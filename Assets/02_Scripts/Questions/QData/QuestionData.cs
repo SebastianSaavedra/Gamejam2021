@@ -18,7 +18,7 @@ public class QuestionData : ScriptableObject
     [System.Serializable]
     public class Parts 
     {
-    public enum Tematicas {nombre,figure,color,felicidad,odio,sabiduria,moral};
+    public enum Tematicas {who,color,existencia,dream,heart,hope,mind,fear,moral,outer};
     public  Tematicas tematica;
     }
 }

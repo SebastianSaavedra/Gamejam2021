@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnMouseDownSendSignal : MonoBehaviour
 {
-    public enum Tematicas { nombre, figure, color, felicidad, odio, sabiduria, moral };
+    public enum Tematicas { who, color, existencia, dream, heart, hope, mind, fear, moral, outer };
     public Tematicas tematica;
     [SerializeField] QuestionManager qm;
     public GameObject referenceObj;
@@ -14,7 +14,7 @@ public class OnMouseDownSendSignal : MonoBehaviour
 
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
+       // audio = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
@@ -32,7 +32,7 @@ public class OnMouseDownSendSignal : MonoBehaviour
         {
             cols.enabled = false;
         }
-        audio.Play();
+       // audio.Play();
         referenceObj.GetComponent<SpriteRenderer>().material = dit;
         qm.AnswerA(tematica.ToString(),referenceObj);
         }

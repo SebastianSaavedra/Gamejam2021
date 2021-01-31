@@ -34,33 +34,42 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] List<QuestionData> questions;
     [SerializeField] GameObject objectToWaitFor;
     [Header("Question Feed")]
-    [SerializeField] List<QuestionData> nombre_Data;
-    [SerializeField] List<QuestionData> figura_Data;
+    //who,color,existencia,dream,heart,hope,mind,fear,moral,outer
+    [SerializeField] List<QuestionData> who_Data;
     [SerializeField] List<QuestionData> color_Data;
-    [SerializeField] List<QuestionData> felicidad_Data;
-    [SerializeField] List<QuestionData> odio_Data;
-    [SerializeField] List<QuestionData> sabiduria_Data;
+    [SerializeField] List<QuestionData> existencia_Data;
+    [SerializeField] List<QuestionData> dream_Data;
+    [SerializeField] List<QuestionData> heart_Data;
+    [SerializeField] List<QuestionData> hope_Data;
+    [SerializeField] List<QuestionData> mind_Data;
+    [SerializeField] List<QuestionData> fear_Data;
     [SerializeField] List<QuestionData> moral_Data;
+    [SerializeField] List<QuestionData> outer_Data;
     [Header("Saved Sprites")]
     List<GameObject> preguntasRespondidas;
     [Header("MusicStages")]
+    #region music
     [SerializeField] List<AudioSource> stage1;
     [SerializeField] List<AudioSource> stage2;
     [SerializeField] List<AudioSource> stage3;
     [SerializeField] List<AudioSource> stage4;
     [SerializeField] List<AudioSource> stage5;
     [SerializeField] List<AudioSource> stage6;
+    #endregion
     [Header("CanClick")]
     public static bool canClick;
     void Start()
     {
-        questions.Add(nombre_Data[Random.Range(0,nombre_Data.Count)]);
-        questions.Add(figura_Data[Random.Range(0,figura_Data.Count)]);
+        questions.Add(who_Data[Random.Range(0,who_Data.Count)]);
         questions.Add(color_Data[Random.Range(0,color_Data.Count)]);
-        questions.Add(felicidad_Data[Random.Range(0,felicidad_Data.Count)]);
-        questions.Add(odio_Data[Random.Range(0,odio_Data.Count)]);
-        questions.Add(sabiduria_Data[Random.Range(0,sabiduria_Data.Count)]);
+        questions.Add(existencia_Data[Random.Range(0,existencia_Data.Count)]);
+        questions.Add(dream_Data[Random.Range(0,dream_Data.Count)]);
+        questions.Add(heart_Data[Random.Range(0,heart_Data.Count)]);
+        questions.Add(hope_Data[Random.Range(0,hope_Data.Count)]);
+        questions.Add(mind_Data[Random.Range(0,mind_Data.Count)]);
+        questions.Add(fear_Data[Random.Range(0,fear_Data.Count)]);
         questions.Add(moral_Data[Random.Range(0,moral_Data.Count)]);
+        questions.Add(outer_Data[Random.Range(0,outer_Data.Count)]);
         StartCoroutine(OnStartUp());
         StartCoroutine(waitforFirstInput());
        
@@ -78,7 +87,9 @@ public class QuestionManager : MonoBehaviour
         pregunta.text = questions[questionid].Pregunta;
         //respuestaA.text = questions[questionid].RespuestaA;
         //respuestaB.text = questions[questionid].RespuestaB;
-      foreach(GameObject answer in questions[questionid].answers) 
+        GetComponent<AudioSource>().clip = questions[questionid].audio;
+        GetComponent<AudioSource>().Play();
+      foreach (GameObject answer in questions[questionid].answers) 
         {
             answers.Add(answer);
         }
@@ -90,7 +101,6 @@ public class QuestionManager : MonoBehaviour
             obj.transform.parent = hands.transform;
             origin[y].GetComponent<IntermediateScript>().panelReference.gameObject.SetActive(true);
             origin[y].GetComponent<IntermediateScript>().panelReference.referenceObj = obj;
-            origin[y].GetComponent<IntermediateScript>().panelReference.GetComponent<AudioSource>().clip = questions[questionid].audio;
             ActivePanels.Add(origin[y].GetComponent<IntermediateScript>().panelReference.gameObject);
             answersInGame.Add(obj);
             answers.RemoveAt(x);
@@ -116,25 +126,35 @@ public class QuestionManager : MonoBehaviour
         savedAnswers.Add(sentObj);
         switch (questions[questionid].parts.tematica) 
         {
-            case QuestionData.Parts.Tematicas.nombre:
+            //who,color,existencia,dream,heart,hope,mind,fear,moral,outer
+            case QuestionData.Parts.Tematicas.who:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
-                break;
-            case QuestionData.Parts.Tematicas.figure:
-                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();                
                 break;
             case QuestionData.Parts.Tematicas.color:
+                    sentObj.GetComponent<DitheringCullOff>().Desintegracion();                
+                break;
+            case QuestionData.Parts.Tematicas.existencia:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();               
                 break;
-                case QuestionData.Parts.Tematicas.felicidad:
+                case QuestionData.Parts.Tematicas.dream:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                     break;
-                case QuestionData.Parts.Tematicas.odio:
+                case QuestionData.Parts.Tematicas.heart:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                     break;
-                case QuestionData.Parts.Tematicas.sabiduria:
+                case QuestionData.Parts.Tematicas.hope:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                     break;
+            case QuestionData.Parts.Tematicas.mind:
+                sentObj.GetComponent<DitheringCullOff>().Desintegracion();
+                break;
+            case QuestionData.Parts.Tematicas.fear:
+                sentObj.GetComponent<DitheringCullOff>().Desintegracion();
+                break;
             case QuestionData.Parts.Tematicas.moral:
+                sentObj.GetComponent<DitheringCullOff>().Desintegracion();
+                break;
+            case QuestionData.Parts.Tematicas.outer:
                 sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                 break;
         }
@@ -280,7 +300,7 @@ public class QuestionManager : MonoBehaviour
     {
         foreach(AudioSource audio in list) 
         {
-            audio.DOFade(1,20);
+            audio.DOFade(.2f,15);
         }
     }
 }
