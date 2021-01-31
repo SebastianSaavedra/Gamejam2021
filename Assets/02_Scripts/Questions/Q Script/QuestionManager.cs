@@ -49,12 +49,16 @@ public class QuestionManager : MonoBehaviour
     List<GameObject> preguntasRespondidas;
     [Header("MusicStages")]
     #region music
-    [SerializeField] List<AudioSource> stage1;
-    [SerializeField] List<AudioSource> stage2;
-    [SerializeField] List<AudioSource> stage3;
-    [SerializeField] List<AudioSource> stage4;
-    [SerializeField] List<AudioSource> stage5;
-    [SerializeField] List<AudioSource> stage6;
+    [SerializeField] AudioSource stage1;
+    [SerializeField] AudioSource stage2;
+    [SerializeField] AudioSource stage3;
+    [SerializeField] AudioSource stage4;
+    [SerializeField] AudioSource stage5;
+    [SerializeField] AudioSource stage6;
+    [SerializeField] AudioSource stage7;
+    [SerializeField] AudioSource stage8;
+    [SerializeField] AudioSource stage9;
+    [SerializeField] AudioSource stage10;
     #endregion
     [Header("CanClick")]
     public static bool canClick;
@@ -187,6 +191,18 @@ public class QuestionManager : MonoBehaviour
             case 5:
                 AudioSourceQueue(stage6);
                 break;
+            case 6:
+                AudioSourceQueue(stage7);
+                break;
+            case 7:
+                AudioSourceQueue(stage8);
+                break;
+            case 8:
+                AudioSourceQueue(stage9);
+                break;
+            case 9:
+                AudioSourceQueue(stage10);
+                break;
         }
         StartCoroutine(HideText());
     }
@@ -268,39 +284,22 @@ public class QuestionManager : MonoBehaviour
     {
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         stage = 1;
-        foreach (AudioSource audio in stage1) 
-        {
-            audio.Play();
-        }
-        foreach (AudioSource audio in stage2)
-        {
-            audio.Play();
-        }
-        foreach (AudioSource audio in stage3)
-        {
-            audio.Play();
-        }
-        foreach (AudioSource audio in stage4)
-        {
-            audio.Play();
-        }
-        foreach (AudioSource audio in stage5)
-        {
-            audio.Play();
-        }
-        foreach (AudioSource audio in stage6)
-        {
-            audio.Play();
-        }
+        stage1.Play();
+        stage2.Play();
+        stage3.Play();
+        stage4.Play();
+        stage5.Play();
+        stage6.Play();
+        stage7.Play();
+        stage8.Play();
+        stage9.Play();
+        stage10.Play();
         AudioSourceQueue(stage1);
         yield break;
     }
 
-    void AudioSourceQueue(List<AudioSource> list) 
+    void AudioSourceQueue(AudioSource audio) 
     {
-        foreach(AudioSource audio in list) 
-        {
             audio.DOFade(.2f,15);
-        }
     }
 }

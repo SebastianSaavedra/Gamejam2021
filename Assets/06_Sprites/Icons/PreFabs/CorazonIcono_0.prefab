@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2312862765483156631}
   - component: {fileID: 930758617090905716}
   - component: {fileID: 47940287817244846}
+  - component: {fileID: 9105149232568291970}
   m_Layer: 0
   m_Name: CorazonIcono_0
   m_TagString: Untagged
@@ -102,3 +103,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9105149232568291970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923825921658001606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 0}
