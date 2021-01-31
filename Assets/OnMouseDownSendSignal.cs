@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OnMouseDownSendSignal : MonoBehaviour
 {
-    public enum BodyPart { head, body, legs, hands, feet, arms };
-    public BodyPart bodypart;
+    public enum Tematicas { nombre, figure, color, felicidad, odio, sabiduria, moral };
+    public Tematicas tematica;
     [SerializeField] QuestionManager qm;
     [SerializeField] GameObject referenceObj;
     public List<Collider> col;
@@ -23,7 +23,7 @@ public class OnMouseDownSendSignal : MonoBehaviour
         {
             cols.enabled = false;
         }
-        qm.AnswerA(bodypart.ToString(),referenceObj);
+        qm.AnswerA(tematica.ToString(),referenceObj);
         }
     }
 }

@@ -297,7 +297,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b10ca3436cd96324db6827c1551ba1af, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -424,7 +424,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 69116569ccba51a45ab07a158561b1e0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -551,7 +551,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 311970314dc88df4e9a3989bd4a9f37e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -830,7 +830,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d950a4182956cdc44a99eb2023c8aebd, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -1090,7 +1090,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8a2a952042b01e243ad25b0f9e3a0aa1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -1217,7 +1217,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 69f20bc24231cd44b9a03c9201f514bc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -1344,7 +1344,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7d74829b5f9405f4aadbb5e4a8a0d4da, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -1716,6 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!65 &626994239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2149,6 +2150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!1 &780828397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,7 +2193,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c95ea029218ee047af959f7b8b31367, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -2318,7 +2320,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 283e01ee6bdb524468ebe330252cadf1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -2632,6 +2634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!1 &1346420249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,6 +2730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!65 &1346420253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2777,6 +2781,7 @@ MonoBehaviour:
   questionid: 0
   currentBodyPart: 
   sentBodyPart: 
+  stage: 0
   sentObj: {fileID: 0}
   pregunta: {fileID: 1811214073}
   respuestaA: {fileID: 2135325335}
@@ -3713,6 +3718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!65 &1877150498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3954,7 +3960,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4a62f060d1ae84c408652c39eb12b92e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -4147,6 +4153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!1 &2024972019
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,6 +4609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!1 &2113079388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4697,6 +4705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65011fa61db9dea47bc96fa7e1e60e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
 --- !u!65 &2113079392
 BoxCollider:
   m_ObjectHideFlags: 0

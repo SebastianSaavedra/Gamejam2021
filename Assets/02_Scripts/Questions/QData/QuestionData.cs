@@ -11,7 +11,7 @@ public class QuestionData : ScriptableObject
     [Header("Respuesta Correcta")]
     public bool a;
     public bool b;
-    public Sprite bodyPartSprite;
+    public Sprite tematicatSprite;
     public Parts parts;
     public Sprite option1;
     public Sprite option2;
@@ -20,7 +20,7 @@ public class QuestionData : ScriptableObject
     [System.Serializable]
     public class Parts 
     {
-    public enum BodyParts {head,body,legs,hands,feet,arms};
-    public  BodyParts bodyParts;
+    public enum Tematicas {nombre,figure,color,felicidad,odio,sabiduria,moral};
+    public  Tematicas tematica;
     }
 }

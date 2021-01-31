@@ -25,13 +25,16 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI respuestaB;
     [SerializeField] List<QuestionData> questions;
     [Header("Question Feed")]
-    [SerializeField] List<QuestionData> head_Data;
-    [SerializeField] List<QuestionData> body_Data;
-    [SerializeField] List<QuestionData> legs_Data;
-    [SerializeField] List<QuestionData> hands_Data;
-    [SerializeField] List<QuestionData> feet_Data;
-    [SerializeField] List<QuestionData> arms_Data;
+    [SerializeField] List<QuestionData> nombre_Data;
+    [SerializeField] List<QuestionData> figura_Data;
+    [SerializeField] List<QuestionData> color_Data;
+    [SerializeField] List<QuestionData> felicidad_Data;
+    [SerializeField] List<QuestionData> odio_Data;
+    [SerializeField] List<QuestionData> sabiduria_Data;
+    [SerializeField] List<QuestionData> moral_Data;
     [SerializeField] DitheringCullOff fadeAnim;
+    [Header("Saved Sprites")]
+
     [Header("MusicStages")]
     [SerializeField] List<AudioSource> stage1;
     [SerializeField] List<AudioSource> stage2;
@@ -43,48 +46,52 @@ public class QuestionManager : MonoBehaviour
     public static bool canClick;
     void Start()
     {
-        questions.Add(head_Data[Random.Range(0,head_Data.Count)]);
-        questions.Add(body_Data[Random.Range(0,body_Data.Count)]);
-        questions.Add(legs_Data[Random.Range(0,legs_Data.Count)]);
-        questions.Add(hands_Data[Random.Range(0,hands_Data.Count)]);
-        questions.Add(feet_Data[Random.Range(0,feet_Data.Count)]);
-        questions.Add(arms_Data[Random.Range(0,arms_Data.Count)]);
+        questions.Add(nombre_Data[Random.Range(0,nombre_Data.Count)]);
+        questions.Add(figura_Data[Random.Range(0,figura_Data.Count)]);
+        questions.Add(color_Data[Random.Range(0,color_Data.Count)]);
+        questions.Add(felicidad_Data[Random.Range(0,felicidad_Data.Count)]);
+        questions.Add(odio_Data[Random.Range(0,odio_Data.Count)]);
+        questions.Add(sabiduria_Data[Random.Range(0,sabiduria_Data.Count)]);
+        questions.Add(moral_Data[Random.Range(0,moral_Data.Count)]);
         StartCoroutine(ShowText());
         StartCoroutine(waitforFirstInput());
        
     }
    public void SelectQuestion() 
     {
-        questionid = Random.Range(0, questions.Count);
-        sprite.sprite = questions[questionid].bodyPartSprite;
-        currentBodyPart = questions[questionid].parts.bodyParts.ToString();
+        sprite.sprite = questions[questionid].tematicatSprite;
+        currentBodyPart = questions[questionid].parts.tematica.ToString();
         pregunta.text = questions[questionid].Pregunta;
         respuestaA.text = questions[questionid].RespuestaA;
         respuestaB.text = questions[questionid].RespuestaB;
+        questionid =  questionid + 1;
     }
     public void AnswerA(string sentBodyPart, GameObject from) 
     {
         sentObj = from;
-        switch (questions[questionid].parts.bodyParts) 
+        switch (questions[questionid].parts.tematica) 
         {
-            case QuestionData.Parts.BodyParts.head:
+            case QuestionData.Parts.Tematicas.nombre:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                 break;
-            case QuestionData.Parts.BodyParts.body:
+            case QuestionData.Parts.Tematicas.figure:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();                
                 break;
-            case QuestionData.Parts.BodyParts.legs:
+            case QuestionData.Parts.Tematicas.color:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();               
                 break;
-                case QuestionData.Parts.BodyParts.arms:
+                case QuestionData.Parts.Tematicas.felicidad:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                     break;
-                case QuestionData.Parts.BodyParts.hands:
+                case QuestionData.Parts.Tematicas.odio:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
                     break;
-                case QuestionData.Parts.BodyParts.feet:
+                case QuestionData.Parts.Tematicas.sabiduria:
                     sentObj.GetComponent<DitheringCullOff>().Desintegracion();
-                    break;           
+                    break;
+            case QuestionData.Parts.Tematicas.moral:
+                sentObj.GetComponent<DitheringCullOff>().Desintegracion();
+                break;
         }
         switch (stage) 
         {
@@ -106,24 +113,24 @@ public class QuestionManager : MonoBehaviour
         }
         StartCoroutine(HideText());
     }
-    public void AnswerB() 
-    {
-        if (questions[questionid].b)
-        {
-            switch (questions[questionid].parts.bodyParts)
-            {
-                case QuestionData.Parts.BodyParts.head:
-                    break;
-                case QuestionData.Parts.BodyParts.body:
+    //public void AnswerB() 
+    //{
+    //    if (questions[questionid].b)
+    //    {
+    //        switch (questions[questionid].parts.tematica)
+    //        {
+    //            case QuestionData.Parts.Tematicas.head:
+    //                break;
+    //            case QuestionData.Parts.Tematicas.body:
                   
-                    break;
-                case QuestionData.Parts.BodyParts.legs:
+    //                break;
+    //            case QuestionData.Parts.Tematicas.legs:
                  
-                    break;
-            }
-        }
-            StartCoroutine(HideText());
-    }
+    //                break;
+    //        }
+    //    }
+    //        StartCoroutine(HideText());
+    //}
     
     IEnumerator ShowText() 
     {
@@ -154,6 +161,30 @@ public class QuestionManager : MonoBehaviour
     {
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         stage = 1;
+        foreach (AudioSource audio in stage1) 
+        {
+            audio.Play();
+        }
+        foreach (AudioSource audio in stage2)
+        {
+            audio.Play();
+        }
+        foreach (AudioSource audio in stage3)
+        {
+            audio.Play();
+        }
+        foreach (AudioSource audio in stage4)
+        {
+            audio.Play();
+        }
+        foreach (AudioSource audio in stage5)
+        {
+            audio.Play();
+        }
+        foreach (AudioSource audio in stage6)
+        {
+            audio.Play();
+        }
         AudioSourceQueue(stage1);
         yield break;
     }
@@ -162,7 +193,7 @@ public class QuestionManager : MonoBehaviour
     {
         foreach(AudioSource audio in list) 
         {
-            audio.DOFade(1,10);
+            audio.DOFade(1,20);
         }
     }
 }
