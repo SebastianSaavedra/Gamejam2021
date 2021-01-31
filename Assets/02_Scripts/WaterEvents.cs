@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class WaterEvents : MonoBehaviour
 {
     [SerializeField] LayerMask layer;
     [SerializeField] List<GameObject> objetos = new List<GameObject>();
     [SerializeField] GameObject panel;
+    [SerializeField] GameObject canvasPanelesOscuros;
     [SerializeField] AudioClip[] clips;
      AudioSource audio;
 
@@ -48,8 +50,9 @@ public class WaterEvents : MonoBehaviour
                         audio.clip = clips[clicks+1];
                         audio.volume = audio.volume + .1f;
                         audio.Play();
+                        objetos[clicks].GetComponent<Image>().DOFade(0f,3f);
                         clicks++;
-                        objetos[clicks - 1].SetActive(true);
+                        //objetos[clicks - 1].SetActive(true);
                         Debug.Log("Clicks = " + clicks);
                         if (clicks == objetos.Count)
                         {
@@ -67,11 +70,12 @@ public class WaterEvents : MonoBehaviour
         puedeDarClick = false;
         primerEvento = true;
         yield return new WaitForSeconds(3.5f);
-        //foreach (GameObject item in objetos)
-        //{
-        //    item.GetComponent<Renderer>().material = ditherMaterial;
-        //}
+        foreach (GameObject item in objetos)
+        {
+            item.SetActive(false);
+        }
         panel.SetActive(true);
+        canvasPanelesOscuros.SetActive(false);
         yield return new WaitForSeconds(.1f);
         Destroy(this);
         //puedeDarClick = true;
