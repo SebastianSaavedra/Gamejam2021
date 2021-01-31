@@ -19,7 +19,7 @@ MonoBehaviour:
   b: 0
   tematicatSprite: {fileID: 0}
   parts:
-    tematica: 0
+    tematica: 9
   answers:
   - {fileID: 6923825921658001606, guid: 626d0409a7e864a489fb05013308c207, type: 3}
   - {fileID: 4581766753017946708, guid: 39a1a937b79749d49a520da6b9beef83, type: 3}
